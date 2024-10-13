@@ -1,14 +1,112 @@
 @import url("https://fonts.googleapis.com/css2?family=Arya:wght@400;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   transition: all 0.2s ease;
-}
-.arya {
   font-family: "Arya", sans-serif;
 }
+/* .arya {
+} */
 .grid1 {
   display: grid;
   grid-template-columns: 0.1fr 5fr 0.1fr;
 }
+.heroBg::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 400px;
+  background-color: #fff;
+  clip-path: polygon(100% 0, -20rem 100%, 100% 100%);
+}
+
+/* Circular Text Animation */
+.text span {
+  display: inline-block;
+  position: absolute;
+  top: -100px;
+  transform-origin: 0 100px;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(3600deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.text {
+  animation: animate 80s linear infinite;
+}
+
+/*  */
+
+/* Responsiveness of landing Page  */
+@media (max-width: 1100px) {
+  .heroImg {
+    width: 600px !important;
+  }
+}
+@media (max-width: 900px) {
+  .txt1 {
+    font-size: 60px !important;
+  }
+}
+@media (max-width: 830px) {
+  /* .heroImg {
+    width: 600px !important;
+    } */
+  .logo {
+    width: 60%;
+  }
+  .navIcons {
+    display: none !important;
+  }
+  .navBtn {
+    display: none !important;
+  }
+  .navMenu {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .heroIcons {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+}
+@media (max-width: 620px) {
+  .txt1 {
+    font-size: 40px !important;
+    line-height: 45px !important;
+  }
+  .heroImg {
+    width: 400px !important;
+  }
+}
+@media (max-width: 410px) {
+  .heroImg {
+    width: 300px !important;
+  }
+  .navGrid {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  .txt2 {
+    font-size: 18px;
+  }
+}
+
+/*  */
