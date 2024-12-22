@@ -26,6 +26,7 @@ const Hero = () => {
             background: `url(${bg})`,
             backgroundPosition: "center",
             backgroundSize: "cover",
+            filter: "brightness(1) contrast(4) saturate(1.3) ",
           }}
           className=" rounded-[20px] mt-[3rem] relative "
         >

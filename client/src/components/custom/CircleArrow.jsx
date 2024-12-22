@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 const CircleArrow = ({ clr }) => {
   const [scrollDirection, setScrollDirection] = useState("right");
+  const textRef = useRef(null);
 
   useEffect(() => {
-    const text = document.querySelector(".text");
-    text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+    if (textRef.current) {
+      const text = textRef.current;
+      text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
 
-    const elements = document.querySelectorAll("span");
-    for (let i = 0; i < elements.length; i++) {
-      elements[i].style.transform = `rotate(${i * 16.8}deg)`;
+      const elements = text.querySelectorAll("span");
+      elements.forEach((element, index) => {
+        element.style.transform = `rotate(${index * 16.8}deg)`;
+      });
     }
   }, []);
 
@@ -18,13 +21,7 @@ const CircleArrow = ({ clr }) => {
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY) {
-        // Scrolling down
-        setScrollDirection("right");
-      } else {
-        // Scrolling up
-        setScrollDirection("left");
-      }
+      setScrollDirection(currentScrollY > lastScrollY ? "right" : "left");
       lastScrollY = currentScrollY;
     };
 
@@ -39,15 +36,14 @@ const CircleArrow = ({ clr }) => {
   return (
     <section className="relative flex items-center justify-center h-full cursor-pointer">
       <h2
+        ref={textRef}
         className={`text text-[${clr}] text-2xl uppercase select-none pointer-events-none`}
       >
         JOIN-NOW * REGISTER-NOW *
       </h2>
       <i
-        className={` !text-[${clr}] relative right-[3rem] text-[7rem] bx ${
-          scrollDirection === "right"
-            ? "bx-right-arrow-alt"
-            : "bx-left-arrow-alt"
+        className={`!text-[${clr}] relative right-[3rem] text-[7rem] bx ${
+          scrollDirection === "right" ? "bx-right-arrow-alt" : "bx-left-arrow-alt"
         }`}
       ></i>
     </section>

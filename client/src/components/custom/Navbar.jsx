@@ -6,6 +6,7 @@ import logo from "../../assets/logo.png";
 import icon4 from "../../assets/r-insta.png";
 import icon5 from "../../assets/r-call.png";
 import icon6 from "../../assets/r-twit.png";
+import { NavLink } from "react-router-dom";
 const Navbar = () => {
   // State to toggle menu visibility
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,26 +28,29 @@ const Navbar = () => {
           </div>
           <div className="flex items-center justify-center flex-col text-center">
             <div>
-              <img className="logo" src={logo} alt="Logo" />
+              <NavLink to="/">
+                {" "}
+                <img className="logo" src={logo} alt="Logo" />
+              </NavLink>
             </div>
             <div className="list-none flex items-center justify-between navBtn">
               <p className="m-[1.5rem] text-[#A1A1A1] font-medium hover:text-[#fff] cursor-pointer">
-                HOME
+                <NavLink to="/">HOME</NavLink>
               </p>
               <p className="m-[1.5rem] text-[#A1A1A1] font-medium hover:text-[#fff] cursor-pointer">
-                ABOUT US
+                <NavLink to="/about">ABOUT US</NavLink>
               </p>
               <p className="m-[1.5rem] text-[#A1A1A1] font-medium hover:text-[#fff] cursor-pointer">
-                CONTACT US
+                <NavLink to="/"> CONTACT US</NavLink>
               </p>
               <p className="m-[1.5rem] text-[#A1A1A1] font-medium hover:text-[#fff] cursor-pointer">
-                GALLERY
+                <NavLink to="/"> GALLERY</NavLink>
               </p>
             </div>
           </div>
           <div>
             <div className="navBtn text-[16px] font-black inline-flex py-[12px] px-[24px] justify-center items-center gap-[10px] rounded-[30px] text-[#fff] bg-[#FC3E3E] cursor-pointer">
-              JOIN NOW
+              <NavLink to="/"> JOIN NOW</NavLink>
             </div>
             <i
               className="navMenu !hidden text-[3rem] text-[#FC3E3E] bx bx-menu-alt-right cursor-pointer"
@@ -73,22 +77,22 @@ const Navbar = () => {
           <img src={logo} alt="Logo" className="w-[20%]" />
 
           <p className="text-[#2C2B2F] text-lg font-medium cursor-pointer !mt-[3rem] !mb-[2rem] border-[#000] border-b">
-            HOME
+            <NavLink to="/">HOME</NavLink>
           </p>
           <p className="text-[#2C2B2F] text-lg font-medium cursor-pointer !mb-[2rem] border-[#000] border-b">
-            ABOUT US
+            <NavLink to="/about">ABOUT US</NavLink>
           </p>
           <p className="text-[#2C2B2F] text-lg font-medium cursor-pointer !mb-[2rem] border-[#000] border-b">
-            CONTACT US
+            <NavLink to="/"> CONTACT US</NavLink>
           </p>
           <p className="text-[#2C2B2F] text-lg font-medium cursor-pointer border-[#000] border-b ">
-            GALLERY
+            <NavLink to="/"> GALLERY</NavLink>
           </p>
-          <div className="absolute bottom-[3rem] flex items-center justify-center ">
-            <img className="ml-[1rem] !w-[15%]" src={icon4} />
-            <img className="ml-[1rem] !w-[15%]" src={icon5} />
-            <img className="ml-[1rem] !w-[15%]" src={icon6} />
-          </div>
+         <div className="heroIcons flex items-center justify-center hidden">
+          <img className="ml-[1rem] !w-[15%]" src={icon1} />
+          <img className="ml-[1rem] !w-[15%]" src={icon2} />
+          <img className="ml-[1rem] !w-[15%]" src={icon3} />
+        </div>
         </div>
       </div>
     </>
